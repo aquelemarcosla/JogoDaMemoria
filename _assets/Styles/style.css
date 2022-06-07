@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: red;
+    display: flex;
+}
+
+.logo-game {
+    width: 100%;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+.logo-game img {
+    width: 150px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: -1px 5px 15px 1px #000000;
+    margin-top: 15px;
+}
+
+.memory-game {
+    height: 640px;
+    width: 640px;
+    margin: auto;
+    margin-top: 225px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card {
+    height: calc(33.333% - 10px);
+    width: calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .3s;
+}
+
+.card-front {
+    background-color: white;
+    transform: rotateY(180deg);
+} 
+
+.card-back {
+    background-color: black;
+    backface-visibility: hidden;
+}
+
+.card:active {
+    transform: scale(0.70);
+    transition: transform .5s;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 7px;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+
+@media only screen and (max-width: 900px) {
+    .card{
+        height: 30%;
+        width: 30%;
+        margin: 8px;
+    }
+    .memory-game {
+        margin-bottom: 215px;
+    }
+}
